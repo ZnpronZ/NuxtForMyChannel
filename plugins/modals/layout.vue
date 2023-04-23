@@ -30,14 +30,14 @@ export default {
   },
   beforeMount() {
     // open event
-    VModal.EventBus.$on('open', params => {
+    VModal.EventBus.$on('open', (params) => {
       if (this.name === params.name) {
         this.open(params)
       }
     })
 
     // close event
-    VModal.EventBus.$on('close', params => {
+    VModal.EventBus.$on('close', (params) => {
       if (this.name === params.name) {
         this.close(params)
       }
@@ -48,6 +48,7 @@ export default {
       this.visible = false;
     },
     open(params) {
+      this.payload = params.payload
       this.visible = true;
     }
   }
