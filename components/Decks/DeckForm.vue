@@ -1,5 +1,5 @@
 <template>
-  <form action="" @click.prevent="onSave">
+  <form @submit.prevent="onSave">
     <div class="form_group">
       <label for="">Name:</label>
       <input v-model="editedDeck.name" class="form_control" type="text" placeholder="Please enter name deck">
@@ -14,7 +14,7 @@
     </div>
     <div class="form_group d_flex justify_content_end">
       <button class="btn btn_danger" @click.prevent="closeModal">Close</button>
-      <button class="btn btn_success ml_3" type="submit">
+      <button class="btn btn_success ml_3" type="button">
         {{ editedDeck && editedDeck.id ? 'Edit' : 'Create'}}
       </button>
     </div>

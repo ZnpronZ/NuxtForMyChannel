@@ -1,5 +1,6 @@
 <template>
   <div class="ct">
+    <event-alert />
     <div class="banner">
       <div class="thumbnail-banner"></div>
     </div>
@@ -34,7 +35,7 @@
 
   .thumbnail-banner {
     height: inherit;
-    background: url("https://www.shutterstock.com/image-vector/horizontal-internet-banner-about-learning-260nw-1603435279.jpg") center center;
+    background: url('https://www.shutterstock.com/image-vector/horizontal-internet-banner-about-learning-260nw-1603435279.jpg') center center;
     background-size: cover;
   }
 }

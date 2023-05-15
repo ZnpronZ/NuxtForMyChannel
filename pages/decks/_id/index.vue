@@ -40,19 +40,17 @@
   </section>
 </template>
 <script>
-import axios from "axios";
-
 import CardList from "@/components/Cards/CardList";
 
 export default {
   components: {CardList},
   asyncData(context) {
-    return axios.get(
-      `https://nuxt-learning-english-69f0f-default-rtdb.asia-southeast1.firebasedatabase.app/decks/${context.params.id}.json`
+    return context.app.$axios.$get(
+      process.env.baseApiUrl + `/decks/${context.params.id}.json`
     )
-      .then((response) => {
+      .then((data) => {
         return {
-          deck: response.data
+          deck: data
         }
       })
       .catch((e) => {
@@ -103,7 +101,7 @@ export default {
       if (name === 'CreateCardModal') {
         this.$modal.open({name: 'CreateCardModal'})
       } else if (name === 'DeckFormModal') {
-        this.$modal.open({name: 'DeckFormModal', payload: { ...this.deck, id: this.$route.params.id}})
+        this.$modal.open({name: 'DeckFormModal', payload: {...this.deck, id: this.$route.params.id}})
       }
     }
   }
